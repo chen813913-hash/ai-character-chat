@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局基础样式：让页面占满高度，过渡更顺滑 */
+html,
+body,
+#app {
+  height: 100%;
+}
+
+/* 暗色主题下滚动条配色（仅 UI 美化，无业务逻辑） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 120, 0.4);
+  border-radius: 4px;
+}
+
+/* Teleport 到 body 的弹窗不在 App 根 div 的颜色作用域内，
+   暗色主题下会继承浏览器默认黑字导致看不清，这里统一兜底 */
+html.dark body {
+  color: #e5e5e5;
+}
+
+/* ===== 聊天内的世界书状态栏（AI 输出的 <details> 折叠块）=====
+   AI 只能输出安全的内联样式，折叠交互样式由前端统一提供 */
+.rich-html details {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: rgba(255, 255, 255, 0.6);
+  margin: 0.4rem 0;
+  overflow: hidden;
+}
+html.dark .rich-html details {
+  background: rgba(24, 24, 27, 0.55);
+  border-color: rgba(129, 140, 248, 0.3);
+}
+.rich-html summary {
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  padding: 0.55rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: #4f46e5;
+  background: rgba(99, 102, 241, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+html.dark .rich-html summary {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.14);
+}
+.rich-html summary::-webkit-details-marker {
+  display: none;
+}
+.rich-html summary::before {
+  content: '▸';
+  font-size: 0.75rem;
+  transition: transform 0.15s ease;
+}
+.rich-html details[open] summary::before {
+  transform: rotate(90deg);
+}
+.rich-html summary strong,
+.rich-html summary b {
+  font-weight: 600;
+}
+.rich-html details > *:not(summary) {
+  padding: 0 0.75rem 0.6rem;
+}
+.rich-html details > pre {
+  margin: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0.25rem 0.75rem 0.65rem !important;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #525252;
+}
+html.dark .rich-html details > pre {
+  color: #d4d4d8;
+}
+
+/* ===== 状态栏内容配色（字段名高亮 / 小节标题 / 分隔线）===== */
+/* 亮色主题：字段名靛蓝加粗，值深灰 */
+.rich-html .rich-field {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  padding: 1.5px 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.rich-html .rich-key {
+  color: #6366f1;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.rich-html .rich-sep {
+  color: rgba(100, 116, 139, 0.55);
+  flex-shrink: 0;
+}
+.rich-html .rich-val {
+  color: #334155;
+  word-break: break-word;
+  min-width: 0;
+}
+/* 小节标题：琥珀色加粗 */
+.rich-html .rich-section {
+  color: #b45309;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  margin: 10px 0 3px;
+}
+/* 虚线分隔 */
+.rich-html hr.rich-hr {
+  border: 0;
+  border-top: 1px dashed rgba(100, 116, 139, 0.45);
+  margin: 8px 0;
+}
+.rich-html .rich-gap {
+  height: 6px;
+}
+.rich-html .rich-line {
+  padding: 1px 0;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+/* 暗色主题：字段名淡紫，值浅灰白 */
+html.dark .rich-html .rich-key {
+  color: #a5b4fc;
+}
+html.dark .rich-html .rich-sep {
+  color: rgba(148, 163, 184, 0.55);
+}
+html.dark .rich-html .rich-val {
+  color: #e2e8f0;
+}
+html.dark .rich-html .rich-section {
+  color: #fbbf24;
+}
+html.dark .rich-html hr.rich-hr {
+  border-top-color: rgba(148, 163, 184, 0.35);
+}

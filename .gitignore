@@ -1,0 +1,31 @@
+# 依赖
+node_modules/
+
+# 构建产物（随时可用 npm run build / npm run build:file 重新生成）
+dist/
+dist-standalone/
+
+# 环境变量 / 本地密钥
+# 本项目不向任何服务器上传数据，这里只是防止误提交本地配置
+.env
+.env.*
+*.local
+
+# 局域网同步文件：明文保存 API Key，绝不提交
+local-sync.json
+
+# 编辑器与系统文件
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# 本地备份目录（联动导入旧数据备份，不上库）
+_backup_link_import_*/

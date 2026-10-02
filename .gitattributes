@@ -1,0 +1,16 @@
+# 默认：文本文件在仓库中统一用 LF
+* text=auto eol=lf
+
+# 关键：Windows 批处理必须是 CRLF
+# cmd.exe 无法正确解析 LF 换行的 .bat（表现为双击后无任何反应），
+# 这里强制签出为 CRLF，避免 clone 后被自动转换成 LF。
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 二进制文件不做换行转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary

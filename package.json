@@ -1,0 +1,40 @@
+{
+  "name": "ai-character-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "纯前端本地 AI 角色聊天工作台：人物卡 + 马甲 + 世界书 + 本地 LLM 对话，数据全部存在浏览器本地，不上传任何内容",
+  "license": "MIT",
+  "keywords": [
+    "vue3",
+    "tailwindcss",
+    "vite",
+    "indexeddb",
+    "llm",
+    "roleplay",
+    "character-card",
+    "lorebook",
+    "local-first"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:file": "vite build --mode file",
+    "preview": "vite preview",
+    "release": "npm run build && npm run build:file"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vite": "^5.2.8"
+  }
+}
